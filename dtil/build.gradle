@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 //    id 'com.github.dcendents.android-maven'
+    id 'maven-publish'
 }
 //group='com.github.username'
 android {
@@ -29,7 +30,22 @@ android {
         jvmTarget = '1.8'
     }
 }
+afterEvaluate {
+    publishing {
+        // 当前依赖库的版本号，方便我们开发者自己查看，同时发布到 MavenLocal 也是用的这个版本号（Jitpack不会使用到）
+        def versionName = "1.0.0"
+        publications {
+            release(MavenPublication) {
+                from components.release // 表示发布 release（Jitpack不会使用到）
 
+                // 自定义属性
+                groupId = 'com.jd.cart' // 依赖库的 Group Id（Jitpack不会使用到）
+                artifactId = 'cart-bundle' // 依赖库的名称，单组件发布时随意填写，多组件时即为此组件的 ArtifactId（Jitpack不会使用到）
+                version = versionName
+            }
+        }
+    }
+}
 dependencies {
     api project(':dtilcore')
     implementation 'androidx.core:core-ktx:1.9.0'
