@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/root"
+    >
+
+    <com.example.myapplication.view.KtView
+        android:id="@+id/test_tv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#BBFFAA"
+        android:layout_centerInParent="true"
+        android:text="我是TextView的内容，哈哈哈哈"
+        android:textSize="16sp"
+        />
+
+
+
+</RelativeLayout>
